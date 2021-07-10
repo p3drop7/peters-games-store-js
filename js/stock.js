@@ -2,7 +2,7 @@ let datos = []; // ARRAY DE JUEGOS DESDE stock.json
 let juegos = []; // JUEGOS CON ATRIBUTOS Y FUNCIONES PARA USARLO EN main.js
 
 // GET stock.json
-let url = "stock.json"
+let url = "./data/stock.json"
 $.getJSON(url, function(response, state){
     if(state == "success"){
         datos = response;
