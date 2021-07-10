@@ -1,0 +1,142 @@
+[
+    {
+       "id":1,
+       "nombre":"Mario",
+       "plataforma":"Nintendo",
+       "precio":2000,
+       "imagen":"./assets/mario.png"
+    },
+    {
+       "id":2,
+       "nombre":"The Legend of Zelda",
+       "plataforma":"Nintendo",
+       "precio":3800,
+       "imagen":"./assets/zelda.png"
+    },
+    {
+       "id":3,
+       "nombre":"Metroid",
+       "plataforma":"Nintendo",
+       "precio":3200,
+       "imagen":"./assets/metroid.png"
+    },
+    {
+       "id":4,
+       "nombre":"Super Smash Bros.",
+       "plataforma":"Nintendo",
+       "precio":1500,
+       "imagen":"./assets/smb.png"
+    },
+    {
+       "id":5,
+       "nombre":"God of War",
+       "plataforma":"Playstation",
+       "precio":5000,
+       "imagen":"./assets/gow.png"
+    },
+    {
+       "id":6,
+       "nombre":"Little Big Planet",
+       "plataforma":"Playstation",
+       "precio":1500,
+       "imagen":"./assets/lbp.png"
+    },
+    {
+       "id":7,
+       "nombre":"The Last of Us",
+       "plataforma":"Playstation",
+       "precio":4500,
+       "imagen":"./assets/tlou.png"
+    },
+    {
+       "id":8,
+       "nombre":"Uncharted",
+       "plataforma":"Playstation",
+       "precio":4000,
+       "imagen":"./assets/uncharted.png"
+    },
+    {
+       "id":9,
+       "nombre":"Horizon Zero Dawn",
+       "plataforma":"Playstation",
+       "precio":6000,
+       "imagen":"./assets/horizon.png"
+    },
+    {
+       "id":10,
+       "nombre":"Gears of War",
+       "plataforma":"Xbox",
+       "precio":4500,
+       "imagen":"./assets/gearsofwar.png"
+    },
+    {
+       "id":11,
+       "nombre":"Halo",
+       "plataforma":"Xbox",
+       "precio":5000,
+       "imagen":"./assets/halo.png"
+    },
+    {
+       "id":12,
+       "nombre":"Forza",
+       "plataforma":"Xbox",
+       "precio":4000,
+       "imagen":"./assets/forza.png"
+    },
+    {
+       "id":13,
+       "nombre":"Quantum Break",
+       "plataforma":"Xbox",
+       "precio":3500,
+       "imagen":"./assets/quantumbreak.png"
+    },
+    {
+       "id":14,
+       "nombre":"Age of Empires",
+       "plataforma":"PC",
+       "precio":2500,
+       "imagen":"./assets/aoe.png"
+    },
+    {
+       "id":15,
+       "nombre":"The Sims",
+       "plataforma":"PC",
+       "precio":2000,
+       "imagen":"./assets/thesims.png"
+    },
+    {
+       "id":16,
+       "nombre":"Simcity",
+       "plataforma":"PC",
+       "precio":2000,
+       "imagen":"./assets/simcity.png"
+    },
+    {
+       "id":17,
+       "nombre":"Europa Universalis",
+       "plataforma":"PC",
+       "precio":2500,
+       "imagen":"./assets/eu.png"
+    },
+    {
+       "id":18,
+       "nombre":"Half-Life:",
+       "plataforma":"PC",
+       "precio":1500,
+       "imagen":"./assets/halflife.png"
+    },
+    {
+       "id":19,
+       "nombre":"Rimworld",
+       "plataforma":"PC",
+       "precio":1500,
+       "imagen":"./assets/rimworld.png"
+    },
+    {
+       "id":20,
+       "nombre":"Pokemon",
+       "plataforma":"Nintendo",
+       "precio":2000,
+       "imagen":"./assets/pokemon.png"
+    }
+]

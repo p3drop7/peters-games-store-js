@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter's Store</title>
+
+    <!-- Fontawesome Icons -->
+    <script src="https://kit.fontawesome.com/5f4f906fbc.js" crossorigin="anonymous"></script>
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!-- Mi style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <!-- Box Carrito -->
+    <div class="boxCarrito" id="boxCarrito"></div>
+    <div class="fondoGris" id="fondoGris"></div>
+
+    <!-- NAV -->
+    <div class="nav">
+        <div class="nav__titulo">
+            <h1>Peter's Games</h1>
+        </div>
+        <div class="nav__links">
+            <a href="#top">Home</a>
+            <a href="#tienda">Tienda</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </div>   
+    
+     <!-- NAV pantallas chicas-->
+    <div class="nav_pantalla_chica">
+        <i class="fas fa-bars"></i>&nbsp
+        <h1>Peter's Games</h1>
+    </div>
+    <div class="nav__links_pantalla_chica">
+        <a href="#top">Home</a>
+        <a href="#tienda">Tienda</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+    
+
+    <!-- Icono del carrito con contador de items-->
+    <div class="iconoCarrito" id="iconoCarrito">
+        <i class="fas fa-shopping-cart" id="carritoIcono"></i>
+        <div class="iconoCarrito__numero" id="carritoNumero">0</div>
+    </div>
+
+    <!-- Slide -->
+    <div class="slide">
+        <div class="main main_1 visible"></div>
+        <div class="main main_2"></div>
+        <div class="main main_3"></div>
+        <div class="main main_4"></div>
+        <div class="main main_5"></div>
+    </div>
+    <div class="logo">
+        <div class="logo_titulo">Peter's Games</div>
+        <div class="logo_subtitulo">STORE</div>
+    </div>
+
+    <!-- Alerta cuando se agrega un item al carrito -->
+    <div class="alerta" id="alerta"></div>
+
+    <!-- Juegos obtenidos del array "juegos" en el main.js -->
+    <div class="contenedor_juegos" id="tienda">
+        <div class="juegosDOM" id="juegosDOM"></div>   
+    </div>
+
+    <div class="contacto" id="contacto">
+        <div class="hvr-sweep-to-right">
+            <h2>Contactanos:</h2>
+            <p><i class="far fa-envelope"></i>  info@petersgames.com</p>
+            <p><i class="fab fa-instagram"></i>  @petersgames</p>
+            <p><i class="fab fa-twitter"></i>  @petersgames</p>
+            <p><i class="fas fa-map-marker-alt"></i>  Buenos As, Argentina</p>
+            <p></p>
+        </div>
+    </div>
+
+    <!-- Datos para la compra -->
+    <div class="fondoGrisConfirmar" id="fondoGrisConfirmar"></div>
+
+    <div class="datosCompra" id="datosCompra">
+        <form action="#" method="POST">
+            <h3>Datos de facturación</h3>
+            <input type="text" placeholder="Nombre Completo" id="datosCompra_nombre" required>
+            <input type="email" placeholder="email" id="datosCompra_email" required>
+            <input type="text" placeholder="Dirección de facturación" id="datosCompra_direccion" required>
+            <input type="submit" placeholder="Siguiente" id="siguienteCompra" class="botonCompra" value="Siguiente">
+            <div id="errorDatos" class="errorDatos"></div>
+        </form>
+    </div>
+
+    <div class="boxMetodoDePago" id="boxMetodoDePago">
+        
+        <select name="metodo" id="selectorMetodoDePago">
+            <option value="seleccione" disabled selected>Seleccione</option>
+            <option value="TDC">Tarjeta de Crédito</option>
+            <option value="TDD">Tarjeta de Débito</option>
+            <option value="Giftcard">Giftcard</option>
+        </select>
+
+        <div class="metodoDePago" id="metodoDePago">
+
+            <form action="#" method="POST" name="TDC" id="TDC" value="TDC">
+                <input type="text" placeholder="Número de tarjeta de crédito" id="numTDC">
+                <input type="date" placeholder="Vencimiento" id="vencimientoTDC">
+                <input type="number" placeholder="Número CVV" id="cvvTDC">
+                <div id="errorDatosTDC" class="errorDatos"></div>
+                <input type="submit" placeholder="Validar datos" id="validarTDC" class="botonCompra" value="Validar tarjeta">
+            </form>
+    
+            <form action="#" method="POST" name="TDD" id="TDD" value="TDD">
+                <input type="text" placeholder="Número de tarjeta de débito" id="numTDD">
+                <input type="date" placeholder="Vencimiento" id="vencimientoTDD">
+                <input type="number" placeholder="Número CVV" id="cvvTDD">
+                <div id="errorDatosTDD" class="errorDatos"></div>
+                <input type="submit" placeholder="Validar datos" id="validarTDD" class="botonCompra" value="Validar tarjeta">
+            </form>
+    
+            <form action="#" method="POST" name="giftcard" id="giftCard" value="giftCard">
+                <input type="number" placeholder="Número de la Giftcard" id="numGC">
+                <div id="errorDatosGC" class="errorDatos"></div>
+                <input type="submit" placeholder="Validar" id="validarGC" class="botonCompra" value="Validar tarjeta">
+            </form>
+
+            <button id="cancelar" class="cancelar">Cancelar compra</button>
+        </div>
+    </div>    
+
+    <div class="confirmarDatos" id="confirmarDatos">
+        <h3>Datos de tu compra:</h3>
+        <div></div>
+        <input type="submit" placeholder="completarCompra" id="pagar" class="botonCompra" value="Pagar">
+        <button id="cancelarCompra" class="cancelar">Cancelar compra</button>
+    </div>
+
+    <div class="compraCompletada" id="compraCompletada">
+        <div class="loader"></div>
+        <p>Validando datos</p>
+        <h3>¡Gracias por tu compra!</h3>
+        <button id="salir">Salir</button>
+        <a href="compra.html" id="printFactura" target="_blank">Ver factura</a>
+    </div>
+    
+    <footer>
+        <p>Designed and coded by Pedro Palencia</p>
+        <a href="https://www.linkedin.com/in/pedro-palencia/" target="_blank">
+            <i class="fab fa-linkedin"></i></i>
+        </a>
+        <a href="https://github.com/p3drop7?tab=repositories" target="_blank">
+            <i class="fab fa-github-square"></i></i>
+        </a>
+    </footer>
+        
+    <!-- SCRIPTS ------------------------------------------------------------- -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Mis script -->
+    <script src="stock.js"></script>
+    <script src="main.js"></script>
+    <script src="slide.js"></script>
+</body>
+</html>
