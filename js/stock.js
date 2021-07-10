@@ -7,7 +7,7 @@ $.getJSON(url, function(response, state){
     if(state == "success"){
         datos = response;
 
-        // GUARDAR datos EN EL ARRAY juegos CON SUS ATRIBUTOS Y FUNCIONES
+        // GUARDAR "datos" EN EL ARRAY "juegos" CON SUS ATRIBUTOS Y FUNCIONES DEL CONTRUCTOR "Juego"
         for(let item of datos){
             juegos.push(new Juego(item.id, item.nombre, item.plataforma, item.precio, item.imagen));
         }
@@ -37,7 +37,7 @@ $.getJSON(url, function(response, state){
     }
 });
 
-//FUNCION PARA CONSTRUIR CADA JUEGO DENTRO DEL ARRAY juegos
+//FUNCION PARA CONSTRUIR CADA JUEGO DENTRO DEL ARRAY "juegos"
 function Juego(id, nombre, plataforma, precio, imagen){
     
     this.id = parseInt(id);
