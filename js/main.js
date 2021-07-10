@@ -236,7 +236,7 @@ function ocultarFormularios(){
     }
 }
 
-// SELECCIONAR EL METODO DE PAGO (CREDITO, DEBITO, GIFT CARD)
+// SELECCIONAR EL METODO DE PAGO (CREDITO, DEBITO O GIFT CARD)
 selectorMetodoDePago.addEventListener("change", function(){
 
     if(selectorMetodoDePago.value == "seleccione"){
@@ -263,15 +263,17 @@ document.querySelector("#validarTDC").addEventListener("click", function(e){
     let vencimientoTDC = document.querySelector("#vencimientoTDC");
     let cvvTDC = document.querySelector("#cvvTDC");
     
-    // AGREGAR INFO AL 
+    // Agregar info al array "datosCompra"
     datosCompra.numeroTarjeta = numeroTDC.value;
     datosCompra.metodo = "Crédito";
-    
+
+    // Animaciones, tomar datos y guardar en local storage
     if(numeroTDC.value && vencimientoTDC.value && cvvTDC.value){
         $("#boxMetodoDePago").css("display", "none").fadeOut();
         $("#confirmarDatos").css("display", "flex").fadeIn();
         recolectarDatosCompra();
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra))
+
     }else if(numeroTDC.value == "" || vencimientoTDC.value == "" || cvvTDC.value == ""){
         document.querySelector("#errorDatosTDC").innerHTML = "Por favor completá todos los campos";
     }
@@ -283,14 +285,18 @@ document.querySelector("#validarTDD").addEventListener("click", function(e){
     let numeroTDD = document.querySelector("#numTDD");
     let vencimientoTDD = document.querySelector("#vencimientoTDD");
     let cvvTDD = document.querySelector("#cvvTDD");
+
+    // Agregar info al array "datosCompra"
     datosCompra.numeroTarjeta = numeroTDD.value;
     datosCompra.metodo = "Débito";
 
+    // Animaciones, tomar datos y guardar en local storage
     if(numeroTDD.value && vencimientoTDD.value && cvvTDD.value){
         $("#boxMetodoDePago").css("display", "none").fadeOut();
         $("#confirmarDatos").css("display", "flex").fadeIn();
         recolectarDatosCompra();
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra))
+
     }else{
         document.querySelector("#errorDatosTDD").innerHTML = "Por favor completá todos los campos";
     }
@@ -299,15 +305,19 @@ document.querySelector("#validarTDD").addEventListener("click", function(e){
 // TOMAR DATOS DE GIFT CARD
 document.querySelector("#validarGC").addEventListener("click", function(e){
     e.preventDefault();
-    let numeroGC = document.querySelector("#numGC")
-    datosCompra.numeroTarjeta = numeroGC.value
-    datosCompra.metodo = "Gift Card"
+    let numeroGC = document.querySelector("#numGC");
 
+    // Agregar info al array "datosCompra"
+    datosCompra.numeroTarjeta = numeroGC.value;
+    datosCompra.metodo = "Gift Card";
+
+    // Animaciones, tomar datos y guardar en local storage
     if(numeroGC.value){
         $("#boxMetodoDePago").fadeOut().css("display", "none");
         $("#confirmarDatos").css("display", "flex").fadeIn();
         recolectarDatosCompra();
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra))
+
     }else{
         document.querySelector("#errorDatosGC").innerHTML = "Por favor completá todos los campos";
     }
