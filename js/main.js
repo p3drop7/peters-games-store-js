@@ -10,7 +10,6 @@ let datosCompra = {
     metodo: "",
     numeroTarjeta: "",
 };
-let datosCompraJSON = "";
 
 // ICONO DEL CARRITO
 let carritoIcono = document.querySelector("#carritoIcono");
@@ -158,7 +157,7 @@ function borrarLocalVacio(){
     }
 }
 
-// BORRAR ITEM DEL CARRITO Y RESTAR DEL PRECIO
+// BORRAR ITEM DEL CARRITO
 function borrarDelCarrito(e){
     
     //Borar items del carrito
@@ -187,11 +186,19 @@ function confirmar(){
     $("#fondoGrisConfirmar").fadeIn().css("display", "block");
 };
 
+// ANIMACIONES Y FUNCIONES DEL BOTON "Cancelar"
 document.querySelector("#cancelar").addEventListener("click", function(){
     $("#datosCompra").fadeOut();
     $("#fondoGrisConfirmar").fadeOut();
     $("#boxMetodoDePago").fadeOut();
     $("#fondoGris").fadeOut();
+
+    setTimeout(function(){
+        let errorDatos = document.querySelectorAll(".errorDatos")
+        for(let item of errorDatos){
+            item.innerHTML = "";
+        }
+    }, 1000); 
 });
 
 // BOTON "Siguiente" PARA TOMAR DATOS DEL COMPRADOR
@@ -202,26 +209,34 @@ document.querySelector("#siguienteCompra").addEventListener("click", function(e)
     let direccionComprador = document.querySelector("#datosCompra_direccion");
 
     if(nombreComprador.value && emailComprador.value && direccionComprador.value){
+
+        // Tomar nombre, email y direccion del comprador
         datosCompra.nombre = nombreComprador.value
         datosCompra.email = emailComprador.value
         datosCompra.direccion = direccionComprador.value
+
+        // Pasar datos al local storage
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra))
+
+        //Animaciones
         $("#datosCompra").fadeOut();
         $("#boxMetodoDePago").css("display", "flex").fadeIn();
+
     }else{
         document.querySelector("#errorDatos").innerHTML = "Por favor completá todos los campos";
     }
 });
 
-// SELECCIONAR EL METODO DE PAGO
-let selectorMetodoDePago = document.querySelector("#selectorMetodoDePago");
-let formularioMetodoDePago = document.querySelectorAll("#metodoDePago form");
+// METODOS DE PAGO
+let selectorMetodoDePago = document.querySelector("#selectorMetodoDePago"); // ELTIQUETA SELECTOR
+let formularioMetodoDePago = document.querySelectorAll("#metodoDePago form"); // FORM DE CADA METODO DE PAGO
 function ocultarFormularios(){
     for(let item of formularioMetodoDePago){
         item.style.display = "none";
     }
 }
 
+// SELECCIONAR EL METODO DE PAGO (CREDITO, DEBITO, GIFT CARD)
 selectorMetodoDePago.addEventListener("change", function(){
 
     if(selectorMetodoDePago.value == "seleccione"){
@@ -241,12 +256,14 @@ selectorMetodoDePago.addEventListener("change", function(){
     }
 });
 
-// TOMAR DATOS DE TARJETA DE CREDITO
+// TOMAR DATOS (TARJETA DE CREDITO)
 document.querySelector("#validarTDC").addEventListener("click", function(e){
     e.preventDefault();
     let numeroTDC = document.querySelector("#numTDC");
     let vencimientoTDC = document.querySelector("#vencimientoTDC");
     let cvvTDC = document.querySelector("#cvvTDC");
+    
+    // AGREGAR INFO AL 
     datosCompra.numeroTarjeta = numeroTDC.value;
     datosCompra.metodo = "Crédito";
     
@@ -255,8 +272,8 @@ document.querySelector("#validarTDC").addEventListener("click", function(e){
         $("#confirmarDatos").css("display", "flex").fadeIn();
         recolectarDatosCompra();
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra))
-    }else{
-        document.querySelector("#errorDatosTDC").html = "Por favor completá todos los campos";
+    }else if(numeroTDC.value == "" || vencimientoTDC.value == "" || cvvTDC.value == ""){
+        document.querySelector("#errorDatosTDC").innerHTML = "Por favor completá todos los campos";
     }
 });
 
@@ -275,7 +292,7 @@ document.querySelector("#validarTDD").addEventListener("click", function(e){
         recolectarDatosCompra();
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra))
     }else{
-        document.querySelector("#errorDatosTDD").html = "Por favor completá todos los campos";
+        document.querySelector("#errorDatosTDD").innerHTML = "Por favor completá todos los campos";
     }
 });
 
@@ -292,7 +309,7 @@ document.querySelector("#validarGC").addEventListener("click", function(e){
         recolectarDatosCompra();
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra))
     }else{
-        document.querySelector("#errorDatosGC").html = "Por favor completá todos los campos";
+        document.querySelector("#errorDatosGC").innerHTML = "Por favor completá todos los campos";
     }
 });
 
@@ -325,13 +342,27 @@ document.querySelector("#pagar").addEventListener("click", function(){
         $("#salir").fadeIn().css("display", "block");
         $("#printFactura").fadeIn().css("display", "block");
     }, 5000)
+
+    setTimeout(function(){
+        let errorDatos = document.querySelectorAll(".errorDatos")
+        for(let item of errorDatos){
+            item.innerHTML = "";
+        }
+    }, 1000); 
 });
 
-// ANIMACIONES PARA EL BOTON CANCELAR COMPRA
+// ANIMACIONES Y FUNCIONES PARA EL BOTON "Cancelar compra"
 document.querySelector("#cancelarCompra").addEventListener("click", function(){
     $("#confirmarDatos").fadeOut();
     $("#fondoGrisConfirmar").fadeOut();
     $("#fondoGris").fadeOut();
+
+    setTimeout(function(){
+        let errorDatos = document.querySelectorAll(".errorDatos")
+        for(let item of errorDatos){
+            item.innerHTML = "";
+        }
+    }, 1000); 
 })
 
 // ANIMACIONES Y FUNCIONES PARA EL BOTON "Salir" AL FINALIZAR LA COMPRA
